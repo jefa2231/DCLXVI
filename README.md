@@ -55,4 +55,4 @@ Deploy to Heroku:
 
 ## Credits
 
-Huge thanks to [everyone](https://github.com/GengKapak/DCLXVI/graphs/contributors) who have helped make this userbot awesome!!</p>
+Huge thanks to [everyone](https://github.com/jefa2231/DCLXVI/graphs/contributors) who have helped make this userbot awesome!!</p>
