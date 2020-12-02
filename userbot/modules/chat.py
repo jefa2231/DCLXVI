@@ -1,172 +1,317 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-""" Userbot module containing userid, chatid and log commands"""
-from asyncio import sleep
-
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
+import asyncio
+import re
+import time
+from time import sleep
+from userbot import CMD_HELP
 from userbot.events import register
-from userbot.modules.admin import get_user_from_event
+
+@register(outgoing=True, pattern='^.price(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("LIST HARGA **JEE AND BEE STORE**\n"
+			 f"=========================\n"
+			 f"WEB PHISING (1 BULAN)\n"
+			 f"\n"
+			 f"DOMAIN : 100.000 \n"
+			 f"SUBDOMAIN : 20.000 \n"
+			 f"*FREE CHECK TRACK DELIVERY\n"
+			 f"=========================\n"
+			 f"WHM\n"
+			 f"\n"
+			 f"MINI : 30.000\n"
+			 f"MEDIUM : 40.000\n"
+			 f"EXTRA : 50.000\n"
+			 f"SUPER : 60.000\n"
+			 f"=========================\n"
+			 f"MWHM\n"
+			 f"\n"
+			 f"MINI : 80.000\n"
+			 f"MEDIUM : 100.000\n"
+			 f"EXTRA : 120.000\n"
+			 f"SUPER : 150.000\n"
+			 f"=========================\n"
+			 f"LIVE RESULT\n"
+			 f"\n"
+			 f"50+ RESULT : 200.000\n"
+			 f"99+ RESULT : 400.000\n"
+			 f"=========================\n"
+			 f"TWITTER\n"
+			 f"\n"
+			 f"50 RESULT : 200.000\n"
+			 f"100 RESULT : 400.000\n"
+			 f"=========================\n"
+			 f"TWITTER\n"
+			 f"\n"
+			 f"1 AKUN : 5.000\n"
+			 f"12 AKUN : 50.000\n"
+			 f"=========================\n"
+			 f"@JeeHeree")
 
 
-@register(outgoing=True, pattern=r"^\.userid$")
-async def useridgetter(target):
-    """ For .userid command, returns the ID of the target user. """
-    message = await target.get_reply_message()
-    if message:
-        if not message.forward:
-            user_id = message.sender.id
-            if message.sender.username:
-                name = "@" + message.sender.username
-            else:
-                name = "**" + message.sender.first_name + "**"
-        else:
-            user_id = message.forward.sender.id
-            if message.forward.sender.username:
-                name = "@" + message.forward.sender.username
-            else:
-                name = "*" + message.forward.sender.first_name + "*"
-        await target.edit("**Name:** {} \n**User ID:** `{}`".format(name, user_id))
+@register(outgoing=True, pattern='^.unredflag(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("UNTUK DI INGAT SAJA\nBUAT YANG BLM TAU BERAPA LAMA PROSES UNREDFLAG ."
+f"\n\nBIASANYA PALING CEPAT ADALAH 1 MALAM DAN PALING LAMA ADALAH 1 - 3 HARI\nTHANKS BOSQU")
+	
+@register(outgoing=True, pattern='^.1(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("Silahkan kirim email anda\n"
+			 f"Dan request tampilan yang ingin anda gunakan\n"
+			 f"List Tampilan : [Klik Disini](https://jefanya.com)")
+	
+@register(outgoing=True, pattern='^.2(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Ok beri waktu beberapa menit, saya akan membuat kan web phising sesuai dengan tampilan yang anda request`")
+	
+
+	
+@register(outgoing=True, pattern='^.3(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("Website Phising telah dibuat\n\n"
+			 f"Garansi : Full\n"
+			 f"Note : `Garansi tidak akan habis sebelum durasi website telah habis, dan ketika durasi di perpanjang maka garansi akan ikut diperpanjang`\n"
+			 f"Usahakan untuk komplain / menggunakan garansi maka sertakan ORDER ID\n"
+			 f"Order ID ada di data phising, dan itu sangatlah berguna")
+
+@register(outgoing=True, pattern='^.whm(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("Berikut Adalah List Harga dari **WHM** \n"
+			 f"**Whm Mini**\n"
+			 f"`Harga :` 40.000/1 Month\n"
+			 f"`Create 15 cPanel`\n"
+			 f"`10GB Web Space`\n"
+			 f"`Unlimited Bandwith`\n"
+			 f"`Free SSL Certificate`\n"
+			 f"\n"
+			 f"**Whm Medium**\n"
+			 f"`Harga :` 50.000/1 Month\n"
+			 f"`Create 25 cPanel`\n"
+			 f"`15GB Web Space`\n"
+			 f"`Unlimited Bandwith`\n"
+			 f"`Free SSL Certificate`\n"
+			 f"\n"
+			 f"**Whm Extra**\n"
+			 f"`Harga :` 60.000/1 Month\n"
+			 f"`Create 40 cPanel`\n"
+			 f"`20GB Web Space`\n"
+			 f"`Unlimited Bandwith`\n"
+			 f"`Free SSL Certificate`\n"
+			 f"\n"
+			 f"**Whm Super**\n"
+			 f"`Harga :` 70.000/1 Month\n"
+			 f"`Create 50 cPanel`\n"
+			 f"`25GB Web Space`\n"
+			 f"`Unlimited Bandwith`\n"
+			 f"`Free SSL Certificate`\n"
+			 f"Dukung saya dengan cara join di channel saya! [klik disini](http://t.me/Jejakcheat14)")
+	
+@register(outgoing=True, pattern='^.tam(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Tampilan cek di :` https://jeenoreal.com/")
+	
+@register(outgoing=True, pattern='^.proses(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("OK, Saya Akan Mengirimkan result dengan cara LIVE. Jadi nnti kalau sudah proses atau sudah giliranmu akan saya beritahu ~ Terimakasih \n"
+			 f"Info Lebih Lanjut! [klik disini](http://t.me/Jejakcheat14)")
+
+@register(outgoing=True, pattern='^.mwhm(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("Daftar harga **M.WHM**\n"
+			 f"MINI : 80.000\n"
+			 f"MEDIUM : 100.000\n"
+			 f"EXTRA : 120.000\n"
+			 f"SUPER : 150.000\n"
+			 f"Info Lebih Lanjut! [klik disini](http://t.me/Jejakcheat14)")
 
 
-@register(outgoing=True, pattern=r"^\.link(?: |$)(.*)")
-async def permalink(mention):
-    """ For .link command, generates a link to the user's PM with a custom text. """
-    user, custom = await get_user_from_event(mention)
-    if not user:
-        return
-    if custom:
-        await mention.edit(f"[{custom}](tg://user?id={user.id})")
-    else:
-        tag = (user.first_name.replace("\u2060", "")
-               if user.first_name else user.username)
-        await mention.edit(f"[{tag}](tg://user?id={user.id})")
+@register(outgoing=True, pattern='^.full(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("Mohon Maaf, Untuk sekarang result live **FULL** \n"
+			 f"Info Lebih Lanjut! [klik disini](http://t.me/Jejakcheat14)")
 
 
-@register(outgoing=True, pattern=r"^\.chatid$")
-async def chatidgetter(chat):
-    """ For .chatid, returns the ID of the chat you are in at that moment. """
-    await chat.edit("Chat ID: `" + str(chat.chat_id) + "`")
+@register(outgoing=True, pattern='^.jual(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("OPEN WEBSITE PHISING\n"
+			f"M.WHM, WHM, CPANEL\n"
+			 f"\n\n`Send email lancar\nada SSL atau gembok ijo\nBisa request tampilan\nDan masih banyak lagi!!`\n\nHarga?\n\nDomain : Rp. 100.000 `Bisa Request Nama Web`\n"
+			 f"Domain : Rp. 50.000 `Tidak bisa request nama web alias yang nentuin penjual`\n"
+			 f"Subdomain : Rp. 20.000 `Tidak bisa request apapun kecuali request tampilan website`\n\n"
+			 f"Payment via : BCA, OVO, TELKOMSEL\n"
+			 f"Mau lihat tampilan web ? Yuk ke demo [klik di sini](https://senturypanel.com/)\n\n"
+			 f"Chat ? [Jefanya Efandchris](http://t.me/Jejakcheat)\n"
+			 f"Join channel telegram yuk! [klik disini](http://t.me/Jejakcheat14)")
 
 
-@register(outgoing=True, pattern=r"^\.log(?: |$)([\s\S]*)")
-async def log(log_text):
-    """ For .log command, forwards a message or the command argument to the bot logs group """
-    if BOTLOG:
-        if log_text.reply_to_msg_id:
-            reply_msg = await log_text.get_reply_message()
-            await reply_msg.forward_to(BOTLOG_CHATID)
-        elif log_text.pattern_match.group(1):
-            user = f"#LOG / Chat ID: {log_text.chat_id}\n\n"
-            textx = user + log_text.pattern_match.group(1)
-            await bot.send_message(BOTLOG_CHATID, textx)
-        else:
-            return await log_text.edit("`What am I supposed to log?`")
-        await log_text.edit("`Logged Successfully`")
-    else:
-        await log_text.edit("`This feature requires Logging to be enabled!`")
-    await sleep(2)
-    await log_text.delete()
+@register(outgoing=True, pattern='^.demo(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Untuk melihat tampilan yang di inginkan\n Silahkan cek`\n [Disini](https://jefanya.com) \n#SenturyBot")
 
 
-@register(outgoing=True, pattern=r"^\.kickme$")
-async def kickme(leave):
-    """ Basically it's .kickme command """
-    await leave.edit("Nope, no, no, I go away")
-    await leave.client.kick_participant(leave.chat_id, "me")
+# Create by myself @JejakCheat
+
+@register(outgoing=True, pattern='^.sibuk(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Sebentar Ya Gan`")
+	sleep(2)
+	await typew.edit("`Masih Ngecek`")
+	sleep(1)
+	await typew.edit("`Oh Ternyata Jefa Masih sibuk... Tunggu sebentar nanti akan dibaca \n#SenturyBot`")
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.on(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Apaan anj baru on gw, gelut??` \n[#jnrstore](t.me/JeeHeree")
+	
+	# Create by myself @JejakCheat
+	
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.o(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Maaf baru online, ada apa bos?` \n#SenturyBot")
+	
+	# Create by myself @JejakCheat
 
 
-@register(outgoing=True, pattern=r"^\.unmutechat$")
-async def unmute_chat(unm_e):
-    """ For .unmutechat command, unmute a muted chat. """
-    try:
-        from userbot.modules.sql_helper.keep_read_sql import unkread
-    except AttributeError:
-        return await unm_e.edit("`Running on Non-SQL Mode!`")
-    unkread(str(unm_e.chat_id))
-    await unm_e.edit("```Unmuted this chat Successfully```")
-    await sleep(2)
-    await unm_e.delete()
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.perbedaan(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Saya jelaskan untuk perbedaan domain dan subdomain .\n\nDomain (pubg.com) **langsung tidak ada tambahan sama sekali\n\nSubdomain ( blablabla.pubg.com ) **ada Tambahan di depan domainnya .\n\nBot By : [#Jefanya](t.me/JejakCheat)")
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.BRI(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`BRI : `091001051136538 `A/N RIZKY SEPTIAN CAHYA` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
 
 
-@register(outgoing=True, pattern=r"^\.mutechat$")
-async def mute_chat(mute_e):
-    """ For .mutechat command, mute any chat. """
-    try:
-        from userbot.modules.sql_helper.keep_read_sql import kread
-    except AttributeError:
-        return await mute_e.edit("`Running on Non-SQL mode!`")
-    await mute_e.edit(str(mute_e.chat_id))
-    kread(str(mute_e.chat_id))
-    await mute_e.edit("`Shush! This chat will be silenced!`")
-    await sleep(2)
-    await mute_e.delete()
-    if BOTLOG:
-        await mute_e.client.send_message(
-            BOTLOG_CHATID, str(mute_e.chat_id) + " was silenced."
-        )
+	
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.bca(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`BCA : `0901316839 `A/N PILU EFENDI` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
 
 
-@register(incoming=True, disable_errors=True)
-async def keep_read(message):
-    """ The mute logic. """
-    try:
-        from userbot.modules.sql_helper.keep_read_sql import is_kread
-    except AttributeError:
-        return
-    kread = is_kread()
-    if kread:
-        for i in kread:
-            if i.groupid == str(message.chat_id):
-                await message.client.send_read_acknowledge(message.chat_id)
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.tsel(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`TELKOMSEL : `082247870713 `A/N -` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
 
 
-# Regex-Ninja module by @Kandnub
-regexNinja = False
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.bni(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`BNI : `0830301026 `A/N Jefanya Efandchris` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
 
 
-@register(outgoing=True, pattern="^s/")
-async def sedNinja(event):
-    """For regex-ninja module, auto delete command starting with s/"""
-    if regexNinja:
-        await sleep(0.5)
-        await event.delete()
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.ovo(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`OVO : `082247870713 `A/N NI KETUT SUERTI` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.DANA(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`DANA : `082210089492 `A/N RIZKY SEPTIAN CAHYA` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.bcaj(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`BCA : `3030634780 `A/N Sutri nanda` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \n[#JefanyaBot](t.me/JejakCheat)")
 
 
-@register(outgoing=True, pattern=r"^\.regexninja (on|off)$")
-async def sedNinjaToggle(event):
-    """ Enables or disables the regex ninja module. """
-    global regexNinja
-    if event.pattern_match.group(1) == "on":
-        regexNinja = True
-        await event.edit("`Successfully enabled ninja mode for Regexbot.`")
-        await sleep(1)
-        await event.delete()
-    elif event.pattern_match.group(1) == "off":
-        regexNinja = False
-        await event.edit("`Successfully disabled ninja mode for Regexbot.`")
-        await sleep(1)
-        await event.delete()
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.dana(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`DANA : `085156073629` A/N IDRUN NAFIS` \nSertakan Bukti Transfer Ya (Wajib) Untuk melanjutkan transaksi \nBot By : [#JefanyaBot](t.me/JejakCheat)")
 
 
-CMD_HELP.update(
-    {
-        "chat": ">`.chatid`"
-        "\nUsage: Fetches the current chat's ID"
-        "\n\n>`.userid`"
-        "\nUsage: Fetches the ID of the user in reply, if its a forwarded message, finds the ID for the source."
-        "\n\n>`.log`"
-        "\nUsage: Forwards the message you've replied to in your bot logs group."
-        "\n\n>`.kickme`"
-        "\nUsage: Leave from a targeted group."
-        "\n\n>`.unmutechat`"
-        "\nUsage: Unmutes a muted chat."
-        "\n\n>`.mutechat`"
-        "\nUsage: Allows you to mute any chat."
-        "\n\n>`.link <username/userid> : <optional text>` (or) reply to someone's message with"
-        "\n\n>`.link <optional text>`"
-        "\nUsage: Generate a permanent link to the user's profile with optional custom text."
-        "\n\n>`.regexninja on/off`"
-        "\nUsage: Globally enable/disables the regex ninja module."
-        "\nRegex Ninja module helps to delete the regex bot's triggering messages."})
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.data(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`Kirim Email + Tampilan yang sudah di request di atas` (Sesuai nama di demo.senturypanel.xyz) \nBot By : [#JefanyaBot](t.me/JejakCheat)")
+
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.harga(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`UPDATE HARGA HARI INI` \n\nDOMAIN : 100.000 (Bisa Request Nama Web)\nDOMAIN : 50.000 (Tidak bisa request nama web)\nSUBDOMAIN : 20.000 (SELAIN PULSA) \nSUBDOMAIN : 25.000 (Via Pulsa) \n\nBot By : [#JefanyaBot](t.me/JejakCheat)")
+
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.bug(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("`JIKA ADA ERROR ATAU BUG DI TAMPILAN PHISING KALIAN TINGGAL SURUH TEMAN KALIAN UNTUK MEMBUKA WEB KALIAN ITU \n\nSyarat : \n1. BEDA HP \n2. BEDA SINYAL \n3. BELUM PERNAH BUKA WEB ITU`\nBot By : [#JefanyaBot](t.me/JejakCheat)")
+
+
+# Create by myself @JejakCheat
+@register(outgoing=True, pattern='^.exp(?: |$)(.*)')
+async def typewriter(typew):
+	message = typew.pattern_match.group(0)
+	sleep(0)
+	await typew.edit("**EXP TIME !!** \nMaaf bos, phising saya matikan atau saya alihkan ke `exp.senturypanel.xyz` \nDikarenakan Sudah melewati tanggal kadaluarsa \nDan jika mau perpanjang silahkan balas pesan ini  \n Dan jika tidak ingin perpanjang abaikan pesan ini \nBot By : [#JefanyaBot](t.me/JejakCheat14)")
+
+
+# Create by myself @JejakCheat
+CMD_HELP.update({
+    "done":
+    "`.domainanim` = `DOMAIN` PUBG Mobile Season 12 `Animation Version`\n"
+    "`.domaintourney` = `DOMAIN` PUBG Mobile Season 12 `Tournament`\n"
+    "`.subdomainanim` = `SUBDOMAIN` PUBG Mobile Season 12 `Animation Version`"
+    "`.subdomaintourney` = `SUBDOMAIN` PUBG Mobile Season 12 `Tournament`"
+    "`.subdomainbokep1` = `SUBDOMAIN` Facebok Bokep `V1`"
+    
+})
+
